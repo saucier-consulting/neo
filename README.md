@@ -51,7 +51,25 @@ cp .env.example .env
 ```env
 VITE_AUTH0_DOMAIN=your-domain.auth0.com
 VITE_AUTH0_CLIENT_ID=your-client-id
+VITE_AUTH0_CALLBACK_URL=http://localhost:5173
 ```
+
+Note: Do not include a trailing slash in the callback URL.
+
+3. Configure Auth0 Application Settings:
+   - Go to Applications > [Your App] > Settings in the Auth0 dashboard
+   - Under "Allowed Callback URLs", add:
+     ```
+     http://localhost:5173,http://localhost:5173/,http://localhost:5173/supervisor
+     ```
+   - Under "Allowed Logout URLs", add:
+     ```
+     http://localhost:5173
+     ```
+   - Under "Allowed Web Origins", add:
+     ```
+     http://localhost:5173
+     ```
 
 ### Installation
 
